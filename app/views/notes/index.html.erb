@@ -1,0 +1,23 @@
+<h1>Listing notes</h1>
+
+  <% @notes.each do |note| %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><b><%= note.name %></b>(<%= note.category %>) by <%= note.user.email %></div>
+        <div class="panel-body">
+          <p>
+            <%= note.content %>
+          </p>
+    
+          <div class="btn-group">
+            <%= link_to 'Show', note, :method => :get, :class => "btn btn-default" %>
+            <%= link_to 'Edit', edit_note_path(note), :method => :get, :class => "btn btn-default" %>
+            <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default"%>
+          </div>  
+        </div>
+    </div>
+
+  <% end %>
+
+
+<br>
+
